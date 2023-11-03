@@ -29,12 +29,12 @@ const Addtocart = () => {
     <h1 className="text-center text-6xl">No item added</h1>
   ) : (
     <div className="flex flex-col px-2 py-3 relative top-16">
-      <div className="w-[50%] px-1">
+      <div className="w-full px-1">
         {item.map((item) => (
           <Carditem item={item} key={item.id} addcart={addcart} />
         ))}
       </div>
-      <div className="w-[50%] px-2 py-1">
+      <div className="w-full px-2 py-1">
         <div className="w-full bg-pink-50 sticky top-7 mt-2 rounded-md shadow-lg flex flex-col items-center">
           <h3 className="pt-1 font-bold">Total Amount</h3>
           <div className="flex items-center w-full">
@@ -42,8 +42,8 @@ const Addtocart = () => {
               <li className="flex justify-between w-full px-2 font-semibold overflow-hidden">
                 <span className="w-[20%] truncate">S.No</span>
                 <span className="w-[20%] truncate">Name</span>
-                <span className="w-[25%] truncate pl-3">Qty,s</span>
-                <span className="w-[20%] truncate">GST%</span>
+                <span className="w-[25%] truncate pl-[4%]">Qty,s</span>
+                <span className="w-[20%] truncate pl-0">GST%</span>
                 <span className="w-[20%] truncate">Total</span>
               </li>
               {item.map((item, i) => (
