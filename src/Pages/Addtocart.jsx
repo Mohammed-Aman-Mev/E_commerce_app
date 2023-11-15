@@ -28,23 +28,24 @@ const Addtocart = () => {
   return item.length === 0 ? (
     <h1 className="text-center text-6xl">No item added</h1>
   ) : (
-    <div className="flex flex-col px-2 py-3 relative top-16">
-      <div className="w-full px-1">
+    <div className="flex px-2">
+      <div className="w-[50%] px-1">
         {item.map((item) => (
           <Carditem item={item} key={item.id} addcart={addcart} />
         ))}
       </div>
-      <div className="w-full px-2 py-1">
+      <div className="w-[50%] px-2 py-1">
         <div className="w-full bg-pink-50 sticky top-7 mt-2 rounded-md shadow-lg flex flex-col items-center">
           <h3 className="pt-1 font-bold">Total Amount</h3>
           <div className="flex items-center w-full">
             <ol className="w-full flex flex-col items-center">
               <li className="flex justify-between w-full px-2 font-semibold overflow-hidden">
-                <span className="w-[20%] truncate">S.No</span>
-                <span className="w-[20%] truncate">Name</span>
-                <span className="w-[25%] truncate pl-[4%]">Qty,s</span>
-                <span className="w-[20%] truncate pl-0">GST%</span>
-                <span className="w-[20%] truncate">Total</span>
+                <span className="w-[5%] truncate">S.No</span>
+                <span className="w-[30%] truncate">Name</span>
+                <span className="w-[20%] truncate">Rate</span>
+                <span className="w-[15%] truncate ">Qty,s</span>
+                <span className="w-[15%] truncate ">GST%</span>
+                <span className="w-[15%] truncate">Total</span>
               </li>
               {item.map((item, i) => (
                 <BillSection key={i} item={item} index={i} />
@@ -54,13 +55,13 @@ const Addtocart = () => {
                 
                 </span> */}
                 <span className="w-[35%] truncate font-mono pl-1 text-2xl font-bold ">
-                 All Item Count :
+                  All Item Count :
                 </span>
                 <span className="w-[5%] truncate font-mono pl-1 text-2xl font-bold">
                   {totalQty}
                 </span>
                 <span className="w-[40%] truncate font-mono pl-6 text-2xl font-bold">
-                  Total Amount:
+                  |Total Amount:
                 </span>
                 <span className="w-[20%] font-mono truncate text-2xl font-bold">
                   {grandTotal}

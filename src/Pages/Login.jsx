@@ -5,8 +5,8 @@ import { login } from "../redux/authSlice";
 
 const Login = () => {
   return (
-    <div className="w-full h-full flex justify-center items-center pt-3.5">
-      <Card className="mt-[140px] p-5 h-auto w-auto">
+    <div className="w-full h-[100vh] flex justify-center items-center bg-slate-300">
+      <Card className="p-5 h-auto w-auto">
         <Box className="flex items-center justify-evenly flex-col h-[280px] w-[500px]">
           <Typography variant="h4">Log In</Typography>
           <TextField
@@ -26,7 +26,7 @@ const Login = () => {
             name="email"
             fullWidth
           />
-          <Button variant="outlined" fullWidth onClick={()=>login}>
+          <Button variant="outlined" fullWidth onClick={() => login}>
             Log In
           </Button>
         </Box>

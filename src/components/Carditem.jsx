@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  addDetail,
   addmoreItem,
   addtoCart,
   removemoreItem,
   removetoCart,
 } from "../redux/itemSlice";
+import { useNavigate } from "react-router-dom";
 
 const Carditem = ({ item, addcart }) => {
+  let Navigate = useNavigate();
   const dispatch = useDispatch();
   const check = useSelector((state) => state.itemdata.addinCart);
   const [isItem, setisItem] = useState(true);
@@ -44,9 +47,6 @@ const Carditem = ({ item, addcart }) => {
 
           break;
         }
-        //  else {
-        //   return
-        // }
       }
     }
   };
@@ -88,6 +88,11 @@ const Carditem = ({ item, addcart }) => {
     dispatch(removemoreItem(newItem));
   };
 
+  const detailes = (item) => {
+    dispatch(addDetail(item));
+    Navigate("/detailes");
+  };
+
   return !addcart ? (
     <div
       className="flex flex-col w-full sm:w-full
@@ -104,7 +109,10 @@ const Carditem = ({ item, addcart }) => {
         <Typography variant="h6">price : ${item.price}</Typography>
 
         <div className="flex flex-col justify-around">
-          <button className="bg-sky-600 rounded-md p-2 mt-0.5 text-white font-bold hover:text-black hover:bg-sky-500">
+          <button
+            className="bg-sky-600 rounded-md p-2 mt-0.5 text-white font-bold hover:text-black hover:bg-sky-500"
+            onClick={() => detailes(item)}
+          >
             Shop now
           </button>
           <button
@@ -147,12 +155,20 @@ const Carditem = ({ item, addcart }) => {
               -
             </button>
           </div>
-          <button
-            className="bg-orange-500 hover:bg-orange-600 rounded-md w-[50%] mx-auto p-1 text-[10px] sm:text-[17px] sm:font-semibold sm:px-2 text-white shadow-3xl sm:w-[60%] sm:p-1 "
-            onClick={() => removeCart(item.id)}
-          >
-            Remove to Cart
-          </button>
+          <div className="flex w-full items-center justify-between">
+            <button
+              className="bg-orange-500 hover:bg-orange-600 rounded-md w-[40%] mx-auto p-1 text-[10px] sm:text-[17px] sm:font-semibold sm:px-2 text-white shadow-3xl sm:w-[40%] sm:p-1 "
+              onClick={() => removeCart(item.id)}
+            >
+              Remove to Cart
+            </button>
+            <button
+              className="bg-sky-600 rounded-md w-[40%] mt-0.5 text-white font-bold p-1.5 hover:text-black hover:bg-sky-500"
+              onClick={() => detailes(item)}
+            >
+              Shop now
+            </button>
+          </div>
         </div>
       </div>
     </div>

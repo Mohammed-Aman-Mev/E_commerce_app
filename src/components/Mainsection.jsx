@@ -7,11 +7,14 @@ import { addtoItem } from "../redux/itemSlice";
 
 const Mainsection = () => {
   const allItem = useSelector((state) => state.itemdata.allItem);
+  const addinCart = useSelector((state) => state.itemdata.addinCart);
   const dispatch = useDispatch();
 
   const handleapi = async () => {
-    const item = await fakeData();
-    dispatch(addtoItem(item));
+    if (allItem === null) {
+      const item = await fakeData();
+      dispatch(addtoItem(item));
+    }
   };
 
   useEffect(() => {
@@ -46,13 +49,14 @@ const Mainsection = () => {
 
           <div className="p-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-1 xl:grid-cols-4 px-8 ">
             {allItem.map((item) => {
+              
               return <Carditem item={item} key={item.id} />;
             })}
           </div>
         </div>
       ) : (
         <Typography variant="h3" align="center" sx={{ paddingTop: "30px" }}>
-          Loading
+          Loading...
         </Typography>
       )}
     </div>

@@ -17,11 +17,12 @@ const BillSection = ({ item, index }) => {
 
   return (
     <li className="flex w-full justify-between px-2">
-      <span className="w-[10%] truncate font-mono pl-1 ml-3">{index + 1}</span>
-      <span className="w-[25%] truncate font-mono pl-1">{item.title}</span>
-      <span className="w-[10%] truncate font-mono pl-1 ">{item.qty}</span>
-      <span className="w-[20%] truncate font-mono pl-[6%] ">{item.GST}%</span>
-      <span className="w-[20%] font-mono pl-1 truncate">{item.GrandTotal}</span>
+      <span className="w-[5%] truncate font-mono ">{index + 1}</span>
+      <span className="w-[30%] truncate font-mono ">{item.title}</span>
+      <span className="w-[20%] truncate font-mono ">{item.price}</span>
+      <span className="w-[15%] truncate font-mono">{item.qty}</span>
+      <span className="w-[15%] truncate font-mono ">{item.GST}%</span>
+      <span className="w-[15%] font-mono pl-1 truncate">{item.GrandTotal}</span>
     </li>
   );
 };

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   allItem: null,
   addinCart: [],
+  detail: null,
   isItem: true,
 };
 
@@ -63,6 +64,9 @@ const itemSlice = createSlice({
         });
       }
     },
+    addDetail: (state, action) => {
+      state.detail = action.payload;
+    },
   },
 });
 
@@ -73,6 +77,7 @@ export const {
   addmoreItem,
   checkisItem,
   removemoreItem,
+  addDetail,
 } = itemSlice.actions;
 
 export default itemSlice.reducer;
